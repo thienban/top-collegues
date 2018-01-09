@@ -23,8 +23,8 @@ export class AppComponent implements OnInit {
       100
     );
     this.collegues.push(sandra);
-    let melodie = new Collegue("Melodie", "", 100);
-    this.collegues.push(clement);
+    let melodie = new Collegue("Melodie", "https://thumbs.dreamstime.com/b/portrait-de-tendresse-de-gr%C3%A2ce-de-m%C3%A9lodie-et-de-plastique-de-fille-gymnastique-64631069.jpg", 100);
+    this.collegues.push(melodie);
     let alexandre = new Collegue(
       "Alexandre",
       "https://tse2.mm.bing.net/th?id=OIP.9eUlO7BBG9s67fwcR1RVrAHaFA&pid=Api",

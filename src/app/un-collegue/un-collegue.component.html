@@ -1,8 +1,14 @@
 <div class="card" style="width: 20rem;">
+  <div class="img-container">
   <img class="card-img-top" [src]="collegue.url" alt="Card image cap">
-  <div class="card-block">
+  </div>
+  <div class="card-body">
     <h4 class="card-title">{{collegue.nom}}</h4>
-    <p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-    <a href="#" class="btn btn-primary">Go somewhere</a>
+    <div class="text-center">
+    <p class="card-text"><strong>{{collegue.score}}</strong></p>
+    </div>
+  </div>
+  <div class="card-footer text-center">
+      <app-bouton (opinion)="setOpinion($event)"></app-bouton>
   </div>
 </div>
