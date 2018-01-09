@@ -8,26 +8,26 @@
 </head>
 
 <body>
-
   <div class="container">
     <h2>Top collegue</h2>
     <form action="/action_page.php">
       <div class="form-group">
         <label for="email">Pseudo</label>
-        <input type="email" class="form-control" id="email" placeholder="Enter email" name="email">
+        <input type="text" id="pseudo" #pseudo class="form-control">
       </div>
       <div class="form-group">
         <label for="pwd">URL image</label>
-        <input type="password" class="form-control" id="pwd" placeholder="Enter password" name="pwd">
+        <input type="text" id="image" #imageUrl class="form-control">
       </div>
-      <div class="checkbox">
-        <label>
-          <input type="checkbox" name="remember"> Remember me</label>
-      </div>
-      <button type="submit" class="btn btn-default">Submit</button>
+      <button (click)="add(pseudo, imageUrl)">Ajouter un nouveau collègue</button>
     </form>
   </div>
 
+  <ul>
+    <li *ngFor="let col of collegues">
+      <app-un-collegue [collegue]="col"></app-un-collegue>
+    </li>
+  </ul>
 </body>
 
 </html>
