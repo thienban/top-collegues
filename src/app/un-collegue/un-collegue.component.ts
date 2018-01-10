@@ -11,7 +11,14 @@ export class UnCollegueComponent {
 
   constructor() {}
 
-  jaime() {}
-
-  jedeteste() {}
+  setOpinion(opinion) {
+    if (opinion) {
+      this.collegue.score += 10;
+      console.log(this.collegue.score)
+    }
+    else {
+      this.collegue.score -= 5;
+      console.log("true")
+    }
+  }
 }

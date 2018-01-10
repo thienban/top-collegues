@@ -9,8 +9,8 @@
 
 <body>
   <div class="container">
+    <div class="jumbotron">
     <h2>Top collegue</h2>
-    <form action="/action_page.php">
       <div class="form-group">
         <label for="email">Pseudo</label>
         <input type="text" id="pseudo" #pseudo class="form-control">
@@ -19,15 +19,11 @@
         <label for="pwd">URL image</label>
         <input type="text" id="image" #imageUrl class="form-control">
       </div>
-      <button (click)="add(pseudo, imageUrl)">Ajouter un nouveau collègue</button>
-    </form>
-  </div>
-
-  <ul>
-    <li *ngFor="let col of collegues">
+      <button class="btn btn-primary" (click)="add(pseudo, imageUrl)">Ajouter un nouveau collègue</button>
+    </div>
+  <div class="card-deck">
+    <div *ngFor="let col of collegues">
       <app-un-collegue [collegue]="col"></app-un-collegue>
-    </li>
-  </ul>
-</body>
-
-</html>
+    </div>
+  </div>
+</div>
