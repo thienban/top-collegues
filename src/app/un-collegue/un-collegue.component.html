@@ -1,14 +1,16 @@
 <div class="card" style="width: 20rem;">
   <div class="img-container">
-  <img class="card-img-top" [src]="collegue.url" alt="Card image cap">
+    <img class="card-img-top" [src]="collegue.imageURL" alt="Card image cap">
   </div>
   <div class="card-body">
-    <h4 class="card-title">{{collegue.nom}}</h4>
+    <h4 class="card-title">{{collegue.pseudo}}</h4>
     <div class="text-center">
-    <p class="card-text"><strong>{{collegue.score}}</strong></p>
+      <p class="card-text">
+        <strong>{{collegue.score}}</strong>
+      </p>
     </div>
   </div>
   <div class="card-footer text-center">
-      <app-bouton (opinion)="setOpinion($event)"></app-bouton>
+    <app-bouton (opinion)="setOpinion($event)"></app-bouton>
   </div>
 </div>
