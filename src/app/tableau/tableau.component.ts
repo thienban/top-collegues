@@ -16,4 +16,16 @@ export class TableauComponent implements OnInit {
       this.collegues = collegues;
     });
   }
+
+  setOpinion(opinion, collegue) {
+    if (opinion) {
+      this.collegueService.aimerUnCollegue(collegue).then(col => {
+        collegue.score = col.score;
+      });
+    } else {
+      this.collegueService.detesterUnCollegue(collegue).then(col => {
+        collegue.score = col.score;
+      });
+    }
+  }
 }
