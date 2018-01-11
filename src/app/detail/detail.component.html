@@ -1,5 +1,18 @@
-<div class="card-deck">
-  <div *ngFor="let col of collegue">
-    <app-un-collegue [collegue]="col"></app-un-collegue>
+<div class="card" style="width: 20rem;">
+  <div class="img-container">
+    <a routerLink="/detail/{{collegue.pseudo}}" routerLinkActive="active-link">
+      <img class="card-img-top" [src]="collegue.imageURL" alt="Card image cap">
+    </a>
+  </div>
+  <div class="card-body">
+    <h4 class="card-title">{{collegue.pseudo | uppercase}}</h4>
+    <div class="text-center">
+      <p class="card-text">
+        <strong>{{collegue.score}}</strong>
+      </p>
+    </div>
+  </div>
+  <div class="card-footer text-center">
+    <app-bouton (opinion)="setOpinion($event)"></app-bouton>
   </div>
 </div>
