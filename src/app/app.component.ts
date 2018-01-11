@@ -2,6 +2,7 @@ import { Component } from "@angular/core";
 import { Collegue } from "./shared/domain/collegue";
 import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 import { CollegueService } from "./shared/service/collegue.service";
+import { ActivatedRoute } from "@angular/router";
 
 @Component({
   selector: "app-root",

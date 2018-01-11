@@ -15,6 +15,11 @@ export class CollegueService {
       .get<Collegue[]>("http://localhost:8080/collegues")
       .toPromise();
   }
+  trouverColleguesByPseudo(pseudo: string): Promise<Collegue> {
+    return this.listerCollegues().then(colleguesQuiViennentDuBackend => {
+      return colleguesQuiViennentDuBackend.find(col => col.pseudo == pseudo);
+    });
+  }
   sauvegarder(newCollegue: Collegue): Promise<Collegue> {
     return this.http
       .post<Collegue>("http://localhost:8080/collegues", newCollegue)

@@ -14,11 +14,13 @@ import { CollegueService } from "./shared/service/collegue.service";
 import { ClassiqueComponent } from "./classique/classique.component";
 import { TableauComponent } from "./tableau/tableau.component";
 import { CarouselComponent } from "./carousel/carousel.component";
+import { DetailComponent } from "./detail/detail.component";
 
 const appRoutes: Routes = [
   { path: "classique", component: ClassiqueComponent },
   { path: "tableau", component: TableauComponent },
-  { path: "carrousel", component: CarouselComponent }
+  { path: "carrousel", component: CarouselComponent },
+  { path: "detail/:pseudo", component: DetailComponent }
 ];
 
 @NgModule({
@@ -28,7 +30,8 @@ const appRoutes: Routes = [
     BoutonComponent,
     ClassiqueComponent,
     TableauComponent,
-    CarouselComponent
+    CarouselComponent,
+    DetailComponent
   ],
   imports: [
     BrowserModule,

@@ -2,7 +2,7 @@
   <ng-template ngbSlide *ngFor="let col of collegues">
     <img [src]="col.imageURL" alt=" first slide">
     <div class="carousel-caption">
-      <h1>{{col.pseudo}}</h1>
+      <h1>{{ col.pseudo | uppercase }}</h1>
       <h2>{{col.score}}</h2>
       <app-bouton (opinion)="setOpinion($event, col)"></app-bouton>
     </div>

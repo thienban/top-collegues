@@ -12,7 +12,7 @@
       <tr *ngFor="let col of collegues">
         <td>
           <img [src]="col.imageURL" width="100px"> </td>
-        <td>{{col.pseudo}}</td>
+        <td>{{col.pseudo | uppercase}}</td>
         <td>{{col.score}}</td>
         <td>
           <app-bouton (opinion)="setOpinion($event, col)"></app-bouton>
