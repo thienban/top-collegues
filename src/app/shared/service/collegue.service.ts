@@ -4,6 +4,7 @@ import { Collegue } from "../domain/collegue";
 
 import { HttpClient } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
+import { Observable } from "rxjs/Observable";
 
 @Injectable()
 export class CollegueService {
@@ -13,35 +14,36 @@ export class CollegueService {
   // Inject HttpClient into service.
   constructor(private http: HttpClient) {}
 
-  listerCollegues(): Promise<Collegue[]> {
+  listerCollegues(): Observable<Collegue[]> {
     // Make the HTTP request:
-    return this.http
-      .get<Collegue[]>("http://localhost:8080/collegues")
-      .toPromise();
+    return this.http.get<Collegue[]>("http://localhost:8080/collegues");
   }
-  trouverColleguesByPseudo(pseudo: string): Promise<Collegue> {
-    return this.listerCollegues().then(colleguesQuiViennentDuBackend => {
+  trouverColleguesByPseudo(pseudo: string): Observable<Collegue> {
+    return this.listerCollegues().map(colleguesQuiViennentDuBackend => {
       return colleguesQuiViennentDuBackend.find(col => col.pseudo == pseudo);
     });
   }
-  sauvegarder(newCollegue: Collegue): Promise<Collegue> {
-    return this.http
-      .post<Collegue>("http://localhost:8080/collegues", newCollegue)
-      .toPromise();
+  sauvegarder(newCollegue: Collegue): Observable<Collegue> {
+    return this.http.post<Collegue>(
+      "http://localhost:8080/collegues",
+      newCollegue
+    );
   }
-  aimerUnCollegue(unCollegue: Collegue): Promise<Collegue> {
-    return this.http
-      .patch<Collegue>("http://localhost:8080/collegues/" + unCollegue.pseudo, {
+  aimerUnCollegue(unCollegue: Collegue): Observable<Collegue> {
+    return this.http.patch<Collegue>(
+      "http://localhost:8080/collegues/" + unCollegue.pseudo,
+      {
         action: "aimer"
-      })
-      .toPromise();
+      }
+    );
   }
-  detesterUnCollegue(unCollegue: Collegue): Promise<Collegue> {
-    return this.http
-      .patch<Collegue>("http://localhost:8080/collegues/" + unCollegue.pseudo, {
+  detesterUnCollegue(unCollegue: Collegue): Observable<Collegue> {
+    return this.http.patch<Collegue>(
+      "http://localhost:8080/collegues/" + unCollegue.pseudo,
+      {
         action: "detester"
-      })
-      .toPromise();
+      }
+    );
   }
 
   getLimiteObservable() {

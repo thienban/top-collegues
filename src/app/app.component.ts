@@ -14,7 +14,7 @@ export class AppComponent implements OnInit {
   //tableau collegue
   collegues: Collegue[];
   ngOnInit() {
-    this.collegueService.listerCollegues().then(collegues => {
+    this.collegueService.listerCollegues().subscribe(collegues => {
       this.collegues = collegues;
     });
   }

@@ -17,7 +17,7 @@ export class DetailComponent {
   ngOnInit() {
     this.collegueService
       .trouverColleguesByPseudo(this.route.snapshot.params["pseudo"])
-      .then(collegueQuiVientDuBack => {
+      .subscribe(collegueQuiVientDuBack => {
         this.collegue = collegueQuiVientDuBack;
       });
   }

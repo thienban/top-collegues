@@ -14,7 +14,7 @@ export class ClassiqueComponent implements OnInit {
   filtreSaisie: string;
 
   ngOnInit() {
-    this.collegueService.listerCollegues().then(collegues => {
+    this.collegueService.listerCollegues().subscribe(collegues => {
       this.collegues = collegues;
     });
     this.collegueService

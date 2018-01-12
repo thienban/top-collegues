@@ -12,17 +12,17 @@ export class CarouselComponent implements OnInit {
   collegues: Collegue[];
 
   ngOnInit() {
-    this.collegueService.listerCollegues().then(collegues => {
+    this.collegueService.listerCollegues().subscribe(collegues => {
       this.collegues = collegues;
     });
   }
   setOpinion(opinion, collegue) {
     if (opinion) {
-      this.collegueService.aimerUnCollegue(collegue).then(col => {
+      this.collegueService.aimerUnCollegue(collegue).subscribe(col => {
         collegue.score = col.score;
       });
     } else {
-      this.collegueService.detesterUnCollegue(collegue).then(col => {
+      this.collegueService.detesterUnCollegue(collegue).subscribe(col => {
         collegue.score = col.score;
       });
     }

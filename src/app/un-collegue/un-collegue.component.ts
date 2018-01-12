@@ -14,11 +14,11 @@ export class UnCollegueComponent {
 
   setOpinion(opinion) {
     if (opinion) {
-      this.collegueService.aimerUnCollegue(this.collegue).then(col => {
+      this.collegueService.aimerUnCollegue(this.collegue).subscribe(col => {
         this.collegue.score = col.score;
       });
     } else {
-      this.collegueService.detesterUnCollegue(this.collegue).then(col => {
+      this.collegueService.detesterUnCollegue(this.collegue).subscribe(col => {
         this.collegue.score = col.score;
       });
     }
