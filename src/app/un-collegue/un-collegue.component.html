@@ -7,8 +7,7 @@
   <div class="card-body">
     <h4 class="card-title">{{collegue.pseudo | uppercase}}</h4>
     <div class="text-center">
-      <p class="card-text">
-        <strong>{{collegue.score}}</strong>
+      <p class="card-text" [innerHTML]="collegue.score | score">
       </p>
     </div>
   </div>

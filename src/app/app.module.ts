@@ -15,6 +15,7 @@ import { ClassiqueComponent } from "./classique/classique.component";
 import { TableauComponent } from "./tableau/tableau.component";
 import { CarouselComponent } from "./carousel/carousel.component";
 import { DetailComponent } from "./detail/detail.component";
+import { ScorePipe } from './shared/pipe/score.pipe';
 
 const appRoutes: Routes = [
   { path: "classique", component: ClassiqueComponent },
@@ -31,7 +32,8 @@ const appRoutes: Routes = [
     ClassiqueComponent,
     TableauComponent,
     CarouselComponent,
-    DetailComponent
+    DetailComponent,
+    ScorePipe
   ],
   imports: [
     BrowserModule,
