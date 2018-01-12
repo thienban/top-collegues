@@ -11,12 +11,8 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class AppComponent implements OnInit {
   constructor(private collegueService: CollegueService) {}
-  //tableau collegue
-  //collegues: Collegue[];
   ngOnInit() {
-    this.collegueService.listerCollegues().subscribe(collegues => {
-      //this.collegues = collegues;
-    });
+    this.collegueService.listerCollegues().subscribe(collegues => {});
   }
 
   setLimite(valeurLimite) {
@@ -25,11 +21,13 @@ export class AppComponent implements OnInit {
   setFiltre(valeurFiltre) {
     this.collegueService.setFiltre(valeurFiltre);
   }
+  setOpinion() {
+    this.collegueService.getOpinionObservable();
+  }
 
   add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
     //ajouter au tableau un nouveau collegue
     let collegueNew = new Collegue(pseudo.value, imageUrl.value, 100);
-    // this.collegues.push(collegueNew);
     //sauvegarder
     this.collegueService
       .sauvegarder(collegueNew)

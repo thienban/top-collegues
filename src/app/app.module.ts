@@ -17,6 +17,7 @@ import { CarouselComponent } from "./carousel/carousel.component";
 import { DetailComponent } from "./detail/detail.component";
 import { ScorePipe } from './shared/pipe/score.pipe';
 import { FiltrePipe } from './shared/pipe/filtre.pipe';
+import { VotreDernierAvisComponent } from './votre-dernier-avis/votre-dernier-avis.component';
 
 const appRoutes: Routes = [
   { path: "classique", component: ClassiqueComponent },
@@ -35,7 +36,8 @@ const appRoutes: Routes = [
     CarouselComponent,
     DetailComponent,
     ScorePipe,
-    FiltrePipe
+    FiltrePipe,
+    VotreDernierAvisComponent
   ],
   imports: [
     BrowserModule,

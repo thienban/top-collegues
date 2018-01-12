@@ -14,6 +14,7 @@ export class CollegueService {
   filtreSubject: BehaviorSubject<string> = new BehaviorSubject("");
   ajouterSubject: BehaviorSubject<string> = new BehaviorSubject("");
   colleguesSubject: BehaviorSubject<Collegue[]> = new BehaviorSubject([]);
+  opinionSubject: BehaviorSubject<string> = new BehaviorSubject("Aucun vote");
   // Inject HttpClient into service.
   constructor(private http: HttpClient) {
     this.refresh();
@@ -51,6 +52,7 @@ export class CollegueService {
       });
   }
   aimerUnCollegue(unCollegue: Collegue): Observable<Collegue> {
+    this.opinionSubject.next("J'aime " + unCollegue.pseudo);
     return this.http.patch<Collegue>(
       "http://localhost:8080/collegues/" + unCollegue.pseudo,
       {
@@ -59,6 +61,7 @@ export class CollegueService {
     );
   }
   detesterUnCollegue(unCollegue: Collegue): Observable<Collegue> {
+    this.opinionSubject.next("Je deteste " + unCollegue.pseudo);
     return this.http.patch<Collegue>(
       "http://localhost:8080/collegues/" + unCollegue.pseudo,
       {
@@ -79,6 +82,10 @@ export class CollegueService {
   }
   setFiltre(value) {
     this.filtreSubject.next(value);
+  }
+
+  getOpinionObservable() {
+    return this.opinionSubject.asObservable();
   }
 
   getAjouterObservable() {
