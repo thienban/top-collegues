@@ -12,10 +12,10 @@ import { ActivatedRoute } from "@angular/router";
 export class AppComponent implements OnInit {
   constructor(private collegueService: CollegueService) {}
   //tableau collegue
-  collegues: Collegue[];
+  //collegues: Collegue[];
   ngOnInit() {
     this.collegueService.listerCollegues().subscribe(collegues => {
-      this.collegues = collegues;
+      //this.collegues = collegues;
     });
   }
 
@@ -29,7 +29,11 @@ export class AppComponent implements OnInit {
   add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
     //ajouter au tableau un nouveau collegue
     let collegueNew = new Collegue(pseudo.value, imageUrl.value, 100);
-    this.collegues.push(collegueNew);
+    // this.collegues.push(collegueNew);
+    //sauvegarder
+    this.collegueService
+      .sauvegarder(collegueNew)
+      .subscribe(data => console.log(data));
     alert("Le collègue " + pseudo.value + " a été ajouté avec succès !");
     //vider les champs
     pseudo.value = "";
