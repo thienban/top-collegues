@@ -10,10 +10,14 @@ import { Collegue } from "../shared/domain/collegue";
 export class ClassiqueComponent implements OnInit {
   constructor(private collegueService: CollegueService) {}
   collegues: Collegue[];
+  limite: number;
 
   ngOnInit() {
     this.collegueService.listerCollegues().then(collegues => {
       this.collegues = collegues;
     });
+    this.collegueService
+      .getLimiteObservable()
+      .subscribe(valeurLimite => (this.limite = valeurLimite));
   }
 }

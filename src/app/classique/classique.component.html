@@ -1,5 +1,5 @@
 <div class="card-deck">
-  <div *ngFor="let col of collegues">
+  <div *ngFor="let col of collegues | slice:0:limite">
     <app-un-collegue [collegue]="col"></app-un-collegue>
   </div>
 </div>

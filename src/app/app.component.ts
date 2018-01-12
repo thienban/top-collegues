@@ -18,6 +18,11 @@ export class AppComponent implements OnInit {
       this.collegues = collegues;
     });
   }
+
+  setLimite(valeurLimite) {
+    this.collegueService.setLimite(valeurLimite);
+  }
+
   add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
     //ajouter au tableau un nouveau collegue
     let collegueNew = new Collegue(pseudo.value, imageUrl.value, 100);
