@@ -20,31 +20,24 @@
       </div>
       <button class="btn btn-primary" (click)="add(pseudo, imageUrl)">Ajouter un nouveau collègue</button>
     </div>
-
     <!--Nav Bar-->
-    <nav class="navbar navbar-expand-lg navbar-light bg-light">
-      <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false"
-        aria-label="Toggle navigation">
-        <span class="navbar-toggler-icon"></span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarSupportedContent">
-        <ul class="navbar-nav">
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/classique" routerLinkActive="active-link">Classique</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/tableau" routerLinkActive="active-link">Tableau</a>
-          </li>
-          <li class="nav-item active">
-            <a class="nav-link" routerLink="/carrousel" routerLinkActive="active-link">Carousel</a>
-          </li>
-        </ul>
-      </div>
-    </nav>
+    <ul class="nav nav-tabs">
+      <li crole="presentation" class="active">
+        <a class="nav-link" routerLink="/classique" routerLinkActive="active-link">Classique</a>
+      </li>
+      <li role="presentation">
+        <a class="nav-link" routerLink="/tableau" routerLinkActive="active-link">Tableau</a>
+      </li>
+      <li role="presentation">
+        <a class="nav-link" routerLink="/carrousel" routerLinkActive="active-link">Carousel</a>
+      </li>
+    </ul>
+    <!--Champs Limite-->
     <div class="input-group">
       <span class="input-group-addon" id="basic-addon3">Limite</span>
       <input #limite type="text" class="form-control" id="size" aria-describedby="basic-addon3" (keyup)="setLimite(limite.value)">
     </div>
+    <!--Composant Collegue-->
     <div>
       <router-outlet></router-outlet>
     </div>
