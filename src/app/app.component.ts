@@ -22,6 +22,9 @@ export class AppComponent implements OnInit {
   setLimite(valeurLimite) {
     this.collegueService.setLimite(valeurLimite);
   }
+  setFiltre(valeurFiltre) {
+    this.collegueService.setFiltre(valeurFiltre);
+  }
 
   add(pseudo: HTMLInputElement, imageUrl: HTMLInputElement) {
     //ajouter au tableau un nouveau collegue

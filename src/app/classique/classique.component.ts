@@ -11,6 +11,7 @@ export class ClassiqueComponent implements OnInit {
   constructor(private collegueService: CollegueService) {}
   collegues: Collegue[];
   limite: number;
+  filtreSaisie: string;
 
   ngOnInit() {
     this.collegueService.listerCollegues().then(collegues => {
@@ -19,5 +20,9 @@ export class ClassiqueComponent implements OnInit {
     this.collegueService
       .getLimiteObservable()
       .subscribe(valeurLimite => (this.limite = valeurLimite));
+
+    this.collegueService
+      .getFiltreObservable()
+      .subscribe(valeurFiltre => (this.filtreSaisie = valeurFiltre));
   }
 }

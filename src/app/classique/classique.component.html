@@ -1,5 +1,5 @@
 <div class="card-deck">
-  <div *ngFor="let col of collegues | slice:0:limite">
+  <div *ngFor="let col of collegues | slice:0:limite | filtre:filtreSaisie">
     <app-un-collegue [collegue]="col"></app-un-collegue>
   </div>
 </div>

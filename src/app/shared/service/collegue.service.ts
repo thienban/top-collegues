@@ -9,8 +9,10 @@ import { BehaviorSubject } from "rxjs";
 export class CollegueService {
   collegues: Collegue[];
   limiteSubject: BehaviorSubject<number> = new BehaviorSubject(100);
-  // Inject HttpClient into your component or service.
+  filtreSubject: BehaviorSubject<string> = new BehaviorSubject("");
+  // Inject HttpClient into service.
   constructor(private http: HttpClient) {}
+
   listerCollegues(): Promise<Collegue[]> {
     // Make the HTTP request:
     return this.http
@@ -45,8 +47,15 @@ export class CollegueService {
   getLimiteObservable() {
     return this.limiteSubject.asObservable();
   }
-
   setLimite(value) {
     this.limiteSubject.next(value);
+  }
+
+  getFiltreObservable() {
+    return this.filtreSubject.asObservable();
+  }
+
+  setFiltre(value) {
+    this.filtreSubject.next(value);
   }
 }

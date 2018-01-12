@@ -37,6 +37,11 @@
       <span class="input-group-addon" id="basic-addon3">Limite</span>
       <input #limite type="text" class="form-control" id="size" aria-describedby="basic-addon3" (keyup)="setLimite(limite.value)">
     </div>
+    <!--Champs Filtre-->
+    <div class="input-group">
+      <span class="input-group-addon" id="basic-addon3">Filtre par pseudo</span>
+      <input #filtre type="text" class="form-control" id="size" aria-describedby="basic-addon3" (keyup)="setFiltre(filtre.value)">
+    </div>
     <!--Composant Collegue-->
     <div>
       <router-outlet></router-outlet>
