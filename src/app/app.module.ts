@@ -18,6 +18,7 @@ import { DetailComponent } from "./detail/detail.component";
 import { ScorePipe } from './shared/pipe/score.pipe';
 import { FiltrePipe } from './shared/pipe/filtre.pipe';
 import { VotreDernierAvisComponent } from './votre-dernier-avis/votre-dernier-avis.component';
+import { StatusComponent } from './status/status.component';
 
 const appRoutes: Routes = [
   { path: "classique", component: ClassiqueComponent },
@@ -37,7 +38,8 @@ const appRoutes: Routes = [
     DetailComponent,
     ScorePipe,
     FiltrePipe,
-    VotreDernierAvisComponent
+    VotreDernierAvisComponent,
+    StatusComponent
   ],
   imports: [
     BrowserModule,

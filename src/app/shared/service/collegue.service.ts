@@ -1,7 +1,5 @@
-import { Injectable } from "@angular/core";
-
+import { Injectable, HostListener } from "@angular/core";
 import { Collegue } from "../domain/collegue";
-
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
 import { Observable } from "rxjs/Observable";
@@ -22,7 +20,6 @@ export class CollegueService {
 
   listerCollegues(): Observable<Collegue[]> {
     // Make the HTTP request:
-
     return this.colleguesSubject.asObservable();
   }
 
@@ -36,6 +33,7 @@ export class CollegueService {
       return colleguesQuiViennentDuBackend.find(col => col.pseudo == pseudo);
     });
   }
+
   sauvegarder(newCollegue: Collegue): Observable<Collegue> {
     const httpOptions = {
       headers: new HttpHeaders({ "Content-Type": "application/json" })

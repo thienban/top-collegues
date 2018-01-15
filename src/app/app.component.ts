@@ -1,4 +1,4 @@
-import { Component } from "@angular/core";
+import { Component, HostListener } from "@angular/core";
 import { Collegue } from "./shared/domain/collegue";
 import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 import { CollegueService } from "./shared/service/collegue.service";
@@ -11,7 +11,9 @@ import { ActivatedRoute } from "@angular/router";
 })
 export class AppComponent implements OnInit {
   constructor(private collegueService: CollegueService) {}
+  status: boolean;
   ngOnInit() {
+    //lister
     this.collegueService.listerCollegues().subscribe(collegues => {});
   }
 
