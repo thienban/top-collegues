@@ -46,10 +46,20 @@
       <input #filtre type="text" class="form-control" id="size" aria-describedby="basic-addon3" (keyup)="setFiltre(filtre.value)">
     </div>
     <app-votre-dernier-avis></app-votre-dernier-avis>
-    <!--Composant Collegue-->
-    <div>
-      <router-outlet></router-outlet>
+  </div>
+  <div class="container">
+    <div class="row">
+      <!--Avis-->
+      <div class="col-8">
+        <!--Composant Collegue-->
+        <router-outlet></router-outlet>
+      </div>
+      <!--Historique-->
+      <div class="col-4">
+        <app-historique></app-historique>
+      </div>
     </div>
     <app-votre-dernier-avis></app-votre-dernier-avis>
   </div>
+
 </body>

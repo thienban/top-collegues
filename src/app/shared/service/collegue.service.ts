@@ -1,21 +1,26 @@
 import { Injectable, HostListener } from "@angular/core";
 import { Collegue } from "../domain/collegue";
+import { Vote } from "../domain/vote";
 import { HttpClient, HttpHeaders } from "@angular/common/http";
 import { BehaviorSubject } from "rxjs";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
+import "rxjs/add/observable/interval";
 
 @Injectable()
 export class CollegueService {
   collegues: Collegue[];
+  votes: Vote[];
   limiteSubject: BehaviorSubject<number> = new BehaviorSubject(100);
   filtreSubject: BehaviorSubject<string> = new BehaviorSubject("");
   ajouterSubject: BehaviorSubject<string> = new BehaviorSubject("");
   colleguesSubject: BehaviorSubject<Collegue[]> = new BehaviorSubject([]);
   opinionSubject: BehaviorSubject<string> = new BehaviorSubject("Aucun vote");
+  voterSubject: BehaviorSubject<Vote[]> = new BehaviorSubject([]);
   // Inject HttpClient into service.
   constructor(private http: HttpClient) {
     this.refresh();
+    this.updateVotes();
   }
 
   listerCollegues(): Observable<Collegue[]> {
@@ -65,6 +70,23 @@ export class CollegueService {
       {
         action: "detester"
       }
+    );
+  }
+
+  voterCollegue(idVote: number): void {
+    this.http
+      .get<Vote[]>("http://localhost:8080/votes?since=" + idVote)
+      .subscribe(votes => this.voterSubject.next(votes));
+  }
+  getVoterCollegue() {
+    return this.voterSubject.asObservable();
+  }
+
+  updateVotes() {
+    Observable.interval(5000).subscribe(() =>
+      this.http
+        .get<Vote[]>("http://localhost:8080/votes?since=")
+        .subscribe(votes => this.voterSubject.next(votes))
     );
   }
 

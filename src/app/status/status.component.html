@@ -1,4 +1,3 @@
 <!--Status-->
 <span *ngIf="!(getStatusObservable() | async)" style="float: right" class="badge badge-danger">Deconnecté</span>
-
 <span *ngIf="(getStatusObservable() | async)" style="float: right" class="badge badge-success">Connecté</span>

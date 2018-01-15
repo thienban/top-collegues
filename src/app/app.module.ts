@@ -19,6 +19,7 @@ import { ScorePipe } from './shared/pipe/score.pipe';
 import { FiltrePipe } from './shared/pipe/filtre.pipe';
 import { VotreDernierAvisComponent } from './votre-dernier-avis/votre-dernier-avis.component';
 import { StatusComponent } from './status/status.component';
+import { HistoriqueComponent } from './historique/historique.component';
 
 const appRoutes: Routes = [
   { path: "classique", component: ClassiqueComponent },
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     ScorePipe,
     FiltrePipe,
     VotreDernierAvisComponent,
-    StatusComponent
+    StatusComponent,
+    HistoriqueComponent
   ],
   imports: [
     BrowserModule,
