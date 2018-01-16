@@ -9,15 +9,14 @@
         </button>
     </div>
     <div class="modal-body">
-        <p>One fine body&hellip;</p>
+        <label for="FormInput1">Rédiger un commentaire</label>
+        <input #commentaireChamp="ngModel" [(ngModel)]="commentaire" class="form-control" id="FormInput1" placeholder="votre commentaire"
+            required> {{commentaireChamp.valid}}
     </div>
     <div class="modal-footer">
         <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Enregistrer</button>
     </div>
 </ng-template>
-
 <button class="btn btn-outline-primary" (click)="open(content)">Commentaire</button>
-
 <hr>
-
 <pre>{{closeResult}}</pre>

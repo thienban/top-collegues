@@ -9,6 +9,7 @@ import { NgbModal, ModalDismissReasons } from "@ng-bootstrap/ng-bootstrap";
 export class BoutonComponent {
   @Output() opinion: EventEmitter<boolean> = new EventEmitter();
   closeResult: string;
+  commentaire: string;
 
   constructor(private modalService: NgbModal) {}
 
