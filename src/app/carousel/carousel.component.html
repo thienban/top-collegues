@@ -6,7 +6,7 @@
         <div class="carousel-caption">
           <h1>{{ col.pseudo | uppercase }}</h1>
           <h2>{{col.score}}</h2>
-          <app-bouton (opinion)="setOpinion($event, col)"></app-bouton>
+          <app-bouton (opinion)="setOpinion($event, col)" [collegue]="col"></app-bouton>
         </div>
       </ng-template>
     </ngb-carousel>

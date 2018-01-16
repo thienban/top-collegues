@@ -6,6 +6,7 @@ import { BehaviorSubject } from "rxjs";
 import { Observable } from "rxjs/Observable";
 import "rxjs/add/operator/map";
 import "rxjs/add/observable/interval";
+import { Commentaire } from "../domain/commentaire";
 
 @Injectable()
 export class CollegueService {
@@ -73,6 +74,15 @@ export class CollegueService {
     );
   }
 
+  sauvegarderCommentaire(newCommentaire: Commentaire): Observable<Commentaire> {
+    return this.http
+      .post<Commentaire>("http://localhost:8080/commentaires", newCommentaire)
+      .map(coms => {
+        this.refresh();
+        return coms;
+      });
+  }
+
   voterCollegue(idVote: number): void {
     this.http
       .get<Vote[]>("http://localhost:8080/votes?since=" + idVote)
@@ -81,7 +91,6 @@ export class CollegueService {
   getVoterCollegue() {
     return this.voterSubject.asObservable();
   }
-
   updateVotes() {
     Observable.interval(5000).subscribe(() =>
       this.http

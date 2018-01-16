@@ -15,7 +15,7 @@
         <td>{{col.pseudo | uppercase}}</td>
         <td>{{col.score}}</td>
         <td>
-          <app-bouton (opinion)="setOpinion($event, col)"></app-bouton>
+          <app-bouton (opinion)="setOpinion($event, col)" [collegue]="col"></app-bouton>
         </td>
       </tr>
     </tbody>
