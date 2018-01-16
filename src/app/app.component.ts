@@ -3,6 +3,7 @@ import { Collegue } from "./shared/domain/collegue";
 import { OnInit } from "@angular/core/src/metadata/lifecycle_hooks";
 import { CollegueService } from "./shared/service/collegue.service";
 import { ActivatedRoute } from "@angular/router";
+import { Commentaire } from "./shared/domain/commentaire";
 
 @Component({
   selector: "app-root",
@@ -12,6 +13,7 @@ import { ActivatedRoute } from "@angular/router";
 export class AppComponent implements OnInit {
   constructor(private collegueService: CollegueService) {}
   status: boolean;
+  commentaire: Commentaire;
   ngOnInit() {
     //lister
     this.collegueService.listerCollegues().subscribe(collegues => {});

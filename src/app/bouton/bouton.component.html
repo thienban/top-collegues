@@ -1,2 +1,23 @@
-<button (click)="jaime()" type="button"  class="btn btn-primary">J'aime</button>
+<button (click)="jaime()" type="button" class="btn btn-primary">J'aime</button>
 <button (click)="jedeteste()" type="button" id="deteste" class="btn btn-danger">Je déteste</button>
+<!--Commentaire-->
+<ng-template #content let-c="close" let-d="dismiss">
+    <div class="modal-header">
+        <h4 class="modal-title">Votre Commentaire</h4>
+        <button type="button" class="close" aria-label="Close" (click)="d('Cross click')">
+            <span aria-hidden="true">&times;</span>
+        </button>
+    </div>
+    <div class="modal-body">
+        <p>One fine body&hellip;</p>
+    </div>
+    <div class="modal-footer">
+        <button type="button" class="btn btn-outline-dark" (click)="c('Close click')">Enregistrer</button>
+    </div>
+</ng-template>
+
+<button class="btn btn-outline-primary" (click)="open(content)">Commentaire</button>
+
+<hr>
+
+<pre>{{closeResult}}</pre>

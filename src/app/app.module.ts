@@ -15,12 +15,12 @@ import { ClassiqueComponent } from "./classique/classique.component";
 import { TableauComponent } from "./tableau/tableau.component";
 import { CarouselComponent } from "./carousel/carousel.component";
 import { DetailComponent } from "./detail/detail.component";
-import { ScorePipe } from './shared/pipe/score.pipe';
-import { FiltrePipe } from './shared/pipe/filtre.pipe';
-import { VotreDernierAvisComponent } from './votre-dernier-avis/votre-dernier-avis.component';
-import { StatusComponent } from './status/status.component';
-import { HistoriqueComponent } from './historique/historique.component';
-
+import { ScorePipe } from "./shared/pipe/score.pipe";
+import { FiltrePipe } from "./shared/pipe/filtre.pipe";
+import { VotreDernierAvisComponent } from "./votre-dernier-avis/votre-dernier-avis.component";
+import { StatusComponent } from "./status/status.component";
+import { HistoriqueComponent } from "./historique/historique.component";
+import { FormsModule } from "@angular/forms";
 const appRoutes: Routes = [
   { path: "classique", component: ClassiqueComponent },
   { path: "tableau", component: TableauComponent },
@@ -47,7 +47,8 @@ const appRoutes: Routes = [
     BrowserModule,
     NgbModule.forRoot(),
     HttpClientModule,
-    RouterModule.forRoot(appRoutes)
+    RouterModule.forRoot(appRoutes),
+    FormsModule
   ],
   providers: [CollegueService],
   bootstrap: [AppComponent]
